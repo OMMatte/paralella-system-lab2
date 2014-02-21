@@ -1,0 +1,22 @@
+The program is a simple and naive simulation of a working place where men and woman work and go to the bathroom, using threads (pthreads) and semaphores.
+The men and woman can never be in the bathroom at the same time but a unlimited amount of the same gender can be in the bathroom at the same time. The people work a random amount of time and are in the bathroom a smaller random amount of time.
+
+Each person is either a man or a woman. Each person is also represented as a thread. A bathroom queue builds up whenever someone goes to the bathroom and at least one person of the other gender is in the bathroom.
+Normally one gender is in the bathroom and one gender is standing in queue. However at certain times both genders can be queuing at the same time. This happens when someone has been queuing for to long so we wait out the gender currently in the bathroom and switch gender when they have all left.
+ 
+the assignments 1:a, 1:b and 1:c.
+Standard and maximum value for MATRIX_SIZE is 10000. Minimum value is 1.
+Standard value for NR_THREADS is 10.
+
+Note that all Standard Val represents time in seconds.
+
+NR_MEN		 | Standard Val: 20	The number of persons (threads) of type men
+NR_WOMAN	 | Standard Val: 30	The number of persons (threads) of type woman
+MAX_WAITING_TIME | Standard Val: 20	The max time someone waits until a force in gender shift takes place. However more time will pass since everyone of the opposite gender have to leave the bathroom first.
+MAX_WORK_TIME	 | Standard Val: 40	Each person will work randomly up to this amount of seconds.
+MAX_TOILET_TIME  | Standard Val: 8	Each person spends randomly up to this amount of time in the bathroom.
+WORKING_DAY	 | Standard Val: 60	After this amount of time has passed, each person will spend one last trip to the bathroom and then go home (close the thread). After each person has gone home, the main thread exits. So the execution time can be much higher than this value.
+
+write 'make' to build
+
+Usage: main [NR_MEN] [NR_WOMAN] [MAX_WAITING_TIME] [MAX_WORK_TIME] [MAX_TOILET_TIME] [WORKING_DAY]
